@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<!-- PEGAR ESTE BLOQUE COMPLETO EN GHL CUSTOM CODE -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zing Producciones</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0c0820;
+  --ink2:#130b2e;
+  --ink3:#1a1040;
+  --glow-o:rgba(255,120,30,0.18);
+  --glow-p:rgba(110,40,200,0.22);
+  --accent:#ff7a1a;
+  --accent2:#ff4f6e;
+  --purple:#8b45f5;
+  --text:rgba(255,255,255,0.88);
+  --muted:rgba(255,255,255,0.45);
+  --dim:rgba(255,255,255,0.18);
+  --line:rgba(255,255,255,0.07);
+}
+html{scroll-behavior:smooth;background:#0c0820 !important;background-color:#0c0820 !important}
+body{font-family:'DM Sans',sans-serif;background:#0c0820 !important;background-color:#0c0820 !important;color:var(--text);overflow-x:hidden}
+
+/* ── UTILITY ── */
+.container{max-width:1080px;margin:0 auto;width:100%}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem 3rem;
+  background:rgba(12,8,32,0.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line);
+}
+.logo{display:flex;flex-direction:column;gap:1px}
+.logo-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.7rem;letter-spacing:8px;
+  background:linear-gradient(135deg,#fff 30%,var(--accent));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  line-height:1;
+}
+.logo-tagline{font-size:8.5px;color:var(--dim);letter-spacing:4px;text-transform:uppercase}
+.nav-btn{
+  font-size:12px;font-weight:500;letter-spacing:.5px;
+  color:var(--accent);
+  border:1px solid rgba(255,122,26,0.35);
+  background:rgba(255,122,26,0.08);
+  padding:9px 22px;border-radius:100px;
+  text-decoration:none;
+  transition:all .25s;
+}
+.nav-btn:hover{background:rgba(255,122,26,0.18);border-color:rgba(255,122,26,0.6);color:#fff}
+
+/* ── HERO ── */
+.hero{
+  position:relative;overflow:hidden;
+  padding:5.5rem 3rem 0;
+  min-height:92vh;
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+#bg-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+
+/* mesh glows */
+.glow-blob{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none;z-index:0}
+.gb1{width:640px;height:640px;background:radial-gradient(circle,rgba(139,69,245,0.28),transparent 65%);top:-160px;right:-180px}
+.gb2{width:480px;height:480px;background:radial-gradient(circle,rgba(255,122,26,0.14),transparent 65%);bottom:-80px;left:-100px}
+.gb3{width:320px;height:320px;background:radial-gradient(circle,rgba(255,79,110,0.1),transparent 65%);top:40%;left:40%}
+
+.hero-body{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1.2fr 1fr;
+  gap:3.5rem;align-items:center;
+}
+
+/* left */
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  margin-bottom:1.6rem;
+  font-size:10.5px;letter-spacing:3.5px;text-transform:uppercase;
+  color:rgba(255,255,255,0.5);
+  font-weight:400;
+}
+.eyebrow-line{width:28px;height:1px;background:linear-gradient(90deg,var(--accent),var(--purple))}
+.eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.7)}}
+
+.hero-h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(4.2rem,7.5vw,7rem);
+  line-height:.9;letter-spacing:1.5px;
+  margin-bottom:1.6rem;
+}
+.h1-plain{display:block;color:rgba(255,255,255,0.95)}
+.h1-gradient{
+  display:block;
+  background:linear-gradient(90deg,var(--accent) 0%,#ffba57 60%,var(--accent2) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-size:200%;
+  animation:shimmer 4s linear infinite;
+}
+@keyframes shimmer{0%{background-position:0%}100%{background-position:200%}}
+.h1-outline{
+  display:block;
+  color:transparent;
+  -webkit-text-stroke:1.5px rgba(255,255,255,0.14);
+}
+
+.hero-desc{
+  font-size:16px;color:var(--muted);line-height:1.75;
+  max-width:440px;margin-bottom:2.2rem;font-weight:300;
+}
+.hero-desc em{color:rgba(255,255,255,0.75);font-style:normal;font-weight:500}
+
+.hero-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2.5rem}
+.hpill{
+  font-size:11.5px;color:var(--muted);
+  border:1px solid var(--line);
+  background:rgba(255,255,255,0.04);
+  padding:5px 14px;border-radius:100px;
+  backdrop-filter:blur(4px);
+}
+
+.hero-ctas{display:flex;align-items:center;gap:1.2rem}
+.cta-main{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:13.5px;font-weight:500;letter-spacing:.3px;
+  padding:13px 28px;border-radius:100px;
+  text-decoration:none;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff;
+  box-shadow:0 0 32px rgba(255,122,26,0.25),0 0 0 1px rgba(255,122,26,0.2);
+  transition:box-shadow .3s,transform .2s;
+}
+.cta-main:hover{box-shadow:0 0 48px rgba(255,122,26,0.4),0 0 0 1px rgba(255,122,26,0.4);transform:translateY(-2px)}
+.cta-ghost{font-size:12.5px;color:var(--muted);font-weight:300;letter-spacing:.2px}
+
+/* right — live widget */
+.hero-widget{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.09);
+  border-radius:20px;overflow:hidden;
+  backdrop-filter:blur(12px);
+  box-shadow:0 0 60px rgba(139,69,245,0.12),inset 0 1px 0 rgba(255,255,255,0.06);
+}
+.hw-top{
+  padding:1.4rem 1.6rem;
+  border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(255,255,255,0.02);
+}
+.hw-live{
+  display:flex;align-items:center;gap:7px;
+  font-size:9.5px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);font-weight:500;
+}
+.hw-livedot{width:5px;height:5px;border-radius:50%;background:var(--accent);animation:pulse 1.3s infinite}
+.hw-badge{
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  padding:3px 10px;border-radius:100px;
+  background:rgba(139,69,245,0.15);border:1px solid rgba(139,69,245,0.25);
+  color:rgba(180,140,255,0.9);
+}
+.hw-body{padding:1.6rem}
+.hw-title{font-family:'Bebas Neue',sans-serif;font-size:1.55rem;letter-spacing:3px;color:#fff;margin-bottom:.4rem}
+.hw-sub{font-size:12.5px;color:var(--muted);line-height:1.6;font-weight:300;margin-bottom:1.4rem}
+.hw-steps{display:flex;align-items:center;gap:3px}
+.hws{flex:1;display:flex;flex-direction:column;align-items:center;gap:7px}
+.hws-icon{
+  width:42px;height:42px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;font-size:17px;
+  background:rgba(255,122,26,0.08);
+  border:1px solid rgba(255,122,26,0.14);
+  transition:background .2s;
+}
+.hws:hover .hws-icon{background:rgba(255,122,26,0.18)}
+.hws-label{font-size:9.5px;color:var(--muted);text-align:center;line-height:1.35;letter-spacing:.2px}
+.hws-arrow{color:var(--dim);font-size:12px;padding-bottom:20px;flex-shrink:0}
+
+/* hero footer */
+.hero-foot{
+  position:relative;z-index:2;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.5rem 0 2rem;
+  border-top:1px solid var(--line);
+  margin-top:3rem;
+}
+.hf-tag{
+  display:flex;align-items:center;gap:8px;
+  font-size:9.5px;letter-spacing:3.5px;text-transform:uppercase;
+  color:rgba(255,255,255,0.28);
+}
+.hf-dot{width:4px;height:4px;border-radius:50%;background:var(--accent);opacity:.6;animation:pulse 2.5s infinite}
+.hf-stats{display:flex;gap:2.5rem}
+.hf-stat{text-align:center}
+.hf-num{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:2px;line-height:1;background:linear-gradient(135deg,var(--accent),#ffba57);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hf-label{font-size:9px;color:var(--dim);letter-spacing:2.5px;text-transform:uppercase;margin-top:2px}
+
+/* ── ORANGE STATS BAR ── */
+.statsbar{
+  background:linear-gradient(135deg,#d46000 0%,var(--accent) 40%,#ffba57 70%,var(--accent2) 100%);
+  display:grid;grid-template-columns:repeat(4,1fr);
+  position:relative;overflow:hidden;
+}
+.statsbar::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle fill='%23ffffff' cx='20' cy='20' r='1' opacity='0.08'/%3E%3C/g%3E%3C/svg%3E");
+}
+.sbar-item{padding:1.6rem 1rem;text-align:center;border-right:1px solid rgba(255,255,255,0.18);position:relative;z-index:1}
+.sbar-item:last-child{border-right:none}
+.sbar-n{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:#fff;letter-spacing:2px;line-height:1;text-shadow:0 2px 12px rgba(0,0,0,0.2)}
+.sbar-l{font-size:10.5px;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:2px;margin-top:3px}
+
+/* ── DIVIDERS ── */
+.fade-div{height:1px;background:linear-gradient(90deg,transparent 0%,rgba(255,122,26,0.2) 30%,rgba(139,69,245,0.2) 70%,transparent 100%)}
+
+/* ── SECTIONS ── */
+.sec{padding:5.5rem 3rem}
+.sec-alt{background:var(--ink2)}
+.sec-mid{background:var(--ink3)}
+.sec-label{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--accent);margin-bottom:.7rem;
+}
+.sec-label-line{width:20px;height:1px;background:linear-gradient(90deg,transparent,var(--accent))}
+.sec-label-line.r{background:linear-gradient(90deg,var(--accent),transparent)}
+.sec-h{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2rem,3.8vw,3.2rem);
+  letter-spacing:3px;line-height:1;
+  color:#fff;text-align:center;margin-bottom:.6rem;
+}
+.sec-h span{
+  background:linear-gradient(90deg,var(--accent),#ffba57);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.sec-sub{text-align:center;font-size:14.5px;color:var(--muted);font-weight:300;margin-bottom:3.5rem;line-height:1.65}
+
+/* ── CAROUSEL ── */
+.carousel-outer{overflow:hidden;position:relative}
+.carousel-outer::before{content:'';position:absolute;left:0;top:0;bottom:0;width:100px;background:linear-gradient(90deg,var(--ink2),transparent);z-index:2;pointer-events:none}
+.carousel-outer::after{content:'';position:absolute;right:0;top:0;bottom:0;width:100px;background:linear-gradient(-90deg,var(--ink2),transparent);z-index:2;pointer-events:none}
+.carousel-track{display:flex;gap:14px;animation:carouselRun 36s linear infinite;width:max-content;touch-action:pan-y}
+.carousel-track:hover{animation-play-state:paused}
+@keyframes carouselRun{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.cslide{
+  width:310px;height:210px;flex-shrink:0;border-radius:16px;overflow:hidden;
+  border:1px solid rgba(255,255,255,0.07);
+  background:var(--ink3);position:relative;
+}
+.cslide img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.cslide:hover img{transform:scale(1.06)}
+.cslide-ph{
+  width:100%;height:100%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  background:linear-gradient(145deg,rgba(139,69,245,0.08),rgba(255,122,26,0.05));
+}
+.cslide-ph-icon{font-size:28px;opacity:.25}
+.cslide-ph-n{
+  font-size:9px;letter-spacing:3px;text-transform:uppercase;
+  color:rgba(255,255,255,0.2);
+}
+/* overlay on hover */
+.cslide::after{
+  content:'Ver';
+  position:absolute;inset:0;
+  background:rgba(255,122,26,0.15);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:4px;color:rgba(255,255,255,0.8);
+  opacity:0;transition:opacity .3s;
+}
+.cslide:hover::after{opacity:1}
+
+/* ── WEB DEL EVENTO ── */
+.web-grid{
+  max-width:1000px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  border-radius:20px;overflow:hidden;
+  border:1px solid rgba(255,255,255,0.07);
+  box-shadow:0 0 80px rgba(139,69,245,0.08);
+}
+.wg-left{
+  padding:3rem;
+  background:linear-gradient(145deg,rgba(139,69,245,0.12),rgba(255,122,26,0.06));
+  border-right:1px solid var(--line);
+  position:relative;overflow:hidden;
+}
+.wg-left::before{
+  content:'';position:absolute;
+  width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(139,69,245,0.2),transparent 70%);
+  bottom:-100px;right:-80px;
+}
+.wg-eyebrow{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:9.5px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--accent);background:rgba(255,122,26,0.08);
+  border:1px solid rgba(255,122,26,0.18);
+  padding:5px 14px;border-radius:100px;margin-bottom:1.5rem;
+}
+.wg-h{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;letter-spacing:3px;color:#fff;line-height:1.05;margin-bottom:1rem}
+.wg-h span{background:linear-gradient(90deg,var(--accent),#ffba57);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.wg-p{font-size:13.5px;color:var(--muted);line-height:1.7;font-weight:300;position:relative;z-index:1}
+.wg-right{padding:3rem;background:rgba(255,255,255,0.02);display:flex;flex-direction:column;gap:12px}
+.wg-step{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:14px 16px;border-radius:14px;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.05);
+  transition:border-color .25s,background .25s,transform .25s;
+}
+.wg-step:hover{border-color:rgba(255,122,26,0.25);background:rgba(255,122,26,0.04);transform:translateX(6px)}
+.wg-num{
+  font-family:'Bebas Neue',sans-serif;font-size:1.4rem;
+  background:linear-gradient(135deg,var(--accent),#ffba57);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  letter-spacing:1px;line-height:1;min-width:26px;
+}
+.wg-txt{font-size:13px;color:var(--muted);line-height:1.55;font-weight:300}
+.wg-txt strong{color:rgba(255,255,255,0.82);font-weight:500}
+
+/* ── BENEFIT CARDS ── */
+.bene-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1020px;margin:0 auto}
+.bcard{
+  padding:1.8rem;border-radius:18px;
+  background:rgba(255,255,255,0.025);
+  border:1px solid rgba(255,255,255,0.07);
+  position:relative;overflow:hidden;
+  transition:transform .3s,border-color .3s,box-shadow .3s;
+}
+.bcard::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:transparent;transition:background .3s;
+}
+.bcard:hover{
+  transform:translateY(-6px);
+  border-color:rgba(255,122,26,0.2);
+  box-shadow:0 20px 60px rgba(139,69,245,0.1),0 0 0 1px rgba(255,122,26,0.08);
+}
+.bcard:hover::before{background:linear-gradient(90deg,var(--accent),var(--accent2),var(--purple))}
+.bcard.featured{
+  background:linear-gradient(145deg,rgba(255,122,26,0.08),rgba(139,69,245,0.06));
+  border-color:rgba(255,122,26,0.15);
+}
+.bcard.featured::before{background:linear-gradient(90deg,var(--accent),#ffba57)}
+.bc-tag{
+  display:inline-block;font-size:8.5px;letter-spacing:2.5px;text-transform:uppercase;
+  font-weight:500;padding:3px 10px;border-radius:100px;margin-bottom:1rem;
+}
+.tag-o{background:rgba(255,122,26,0.12);color:rgba(255,160,80,0.9);border:1px solid rgba(255,122,26,0.18)}
+.tag-m{background:rgba(255,79,110,0.1);color:rgba(255,130,150,0.9);border:1px solid rgba(255,79,110,0.18)}
+.tag-p{background:rgba(139,69,245,0.12);color:rgba(180,140,255,0.9);border:1px solid rgba(139,69,245,0.2)}
+.bc-icon{font-size:26px;margin-bottom:.8rem;display:block;filter:drop-shadow(0 0 12px rgba(255,122,26,0.3))}
+.bc-title{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:2px;color:#fff;margin-bottom:.5rem}
+.bc-text{font-size:12.5px;color:var(--muted);line-height:1.65;font-weight:300}
+.bc-text strong{color:rgba(255,255,255,0.75);font-weight:500}
+
+/* ── GARANTÍA ── */
+.garantia-wrap{max-width:860px;margin:0 auto}
+.garantia{
+  border-radius:22px;padding:3.5rem;
+  display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:center;
+  background:linear-gradient(135deg,rgba(255,122,26,0.07) 0%,rgba(139,69,245,0.1) 100%);
+  border:1px solid rgba(255,122,26,0.15);
+  box-shadow:0 0 80px rgba(255,122,26,0.06);
+  position:relative;overflow:hidden;
+}
+.garantia::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2),var(--purple));
+}
+.garantia::after{
+  content:'';position:absolute;
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(139,69,245,0.12),transparent 65%);
+  right:-100px;bottom:-150px;pointer-events:none;
+}
+.g-icon{
+  width:82px;height:82px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,rgba(255,122,26,0.15),rgba(139,69,245,0.15));
+  border:1px solid rgba(255,122,26,0.25);
+  display:flex;align-items:center;justify-content:center;font-size:34px;
+  box-shadow:0 0 30px rgba(255,122,26,0.12);
+}
+.g-label{font-size:9.5px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:.5rem;opacity:.8}
+.g-title{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:3px;color:#fff;margin-bottom:.75rem;line-height:1.05}
+.g-text{font-size:14.5px;color:var(--muted);line-height:1.75;font-weight:300}
+.g-text strong{color:rgba(255,200,120,0.9);font-weight:500}
+
+/* ── PROCESS ── */
+.proc-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  max-width:1020px;margin:0 auto;
+  gap:14px;
+}
+.pcard{
+  padding:1.8rem 1.4rem;border-radius:16px;
+  background:rgba(255,255,255,0.025);
+  border:1px solid var(--line);
+  transition:border-color .25s,background .25s,transform .25s;
+}
+.pcard:hover{border-color:rgba(255,122,26,0.2);background:rgba(255,122,26,0.04);transform:translateY(-4px)}
+.pcard-n{
+  font-family:'Bebas Neue',sans-serif;font-size:2.6rem;letter-spacing:2px;line-height:1;margin-bottom:6px;
+  background:linear-gradient(135deg,rgba(255,122,26,0.2),rgba(139,69,245,0.2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.pcard-icon{font-size:24px;margin-bottom:.7rem;display:block;filter:drop-shadow(0 0 10px rgba(255,122,26,0.25))}
+.pcard-title{font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:2px;color:#fff;margin-bottom:.4rem}
+.pcard-text{font-size:12px;color:var(--muted);line-height:1.6;font-weight:300}
+
+/* ── EQUIPO ── */
+.team-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  max-width:960px;margin:0 auto;
+}
+.tcard{
+  border-radius:20px;overflow:hidden;
+  background:rgba(255,255,255,0.025);
+  border:1px solid rgba(255,255,255,0.07);
+  transition:transform .3s,border-color .3s,box-shadow .3s;
+  position:relative;
+}
+.tcard:hover{
+  transform:translateY(-8px);
+  border-color:rgba(255,122,26,0.2);
+  box-shadow:0 24px 60px rgba(0,0,0,0.3),0 0 40px rgba(139,69,245,0.08);
+}
+.tcard-center{
+  border-color:rgba(139,69,245,0.18);
+  background:linear-gradient(160deg,rgba(139,69,245,0.07),rgba(255,122,26,0.04));
+}
+.tcard-photo-wrap{position:relative;height:200px;overflow:hidden}
+.tcard-photo{
+  width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(145deg,rgba(139,69,245,0.15),rgba(255,122,26,0.08));
+  position:relative;z-index:1;
+}
+.tcard-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.tph-initial{
+  font-family:'Bebas Neue',sans-serif;font-size:5rem;letter-spacing:4px;
+  background:linear-gradient(135deg,var(--accent),var(--purple));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  opacity:.4;
+}
+.tcard-glow{
+  position:absolute;inset:0;pointer-events:none;
+  border-radius:50%;filter:blur(60px);opacity:.5;
+}
+.tglow-o{background:radial-gradient(circle at 50% 80%,rgba(255,122,26,0.3),transparent 65%)}
+.tglow-p{background:radial-gradient(circle at 50% 80%,rgba(139,69,245,0.35),transparent 65%)}
+.tglow-m{background:radial-gradient(circle at 50% 80%,rgba(255,79,110,0.3),transparent 65%)}
+.tcard-body{padding:1.5rem 1.6rem 1.8rem}
+.tcard-role{
+  font-size:9.5px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--accent);margin-bottom:.4rem;font-weight:500;opacity:.8;
+}
+.tcard-name{
+  font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:4px;
+  color:#fff;margin-bottom:.75rem;line-height:1;
+}
+.tcard-bio{font-size:12.5px;color:var(--muted);line-height:1.65;font-weight:300;margin-bottom:1.1rem}
+.tcard-tags{display:flex;flex-direction:column;gap:6px}
+.ttag{
+  font-size:11px;color:rgba(255,255,255,0.45);
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.06);
+  padding:5px 12px;border-radius:100px;
+  display:inline-block;width:fit-content;
+}
+
+/* ── FORM ── */
+.form-section{
+  padding:5.5rem 3rem;
+  background:var(--ink);
+  position:relative;overflow:hidden;
+}
+.form-section::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(139,69,245,0.14),transparent 60%);
+  pointer-events:none;
+}
+.form-wrap{max-width:780px;margin:0 auto;position:relative;z-index:2}
+.form-shell{
+  border-radius:22px;overflow:hidden;
+  border:1px solid rgba(255,255,255,0.09);
+  box-shadow:0 0 100px rgba(139,69,245,0.1),0 0 40px rgba(255,122,26,0.06);
+}
+.form-shell-head{
+  padding:1.3rem 2rem;
+  background:rgba(255,255,255,0.04);
+  border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.fsh-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:4px;color:rgba(255,255,255,0.7)}
+.fsh-live{display:flex;align-items:center;gap:6px;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);font-weight:500}
+.fsh-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);animation:pulse 1.3s infinite}
+.form-shell-body{background:#fff}
+.form-shell-body iframe{width:100%;min-height:520px;display:block;border:none}
+
+/* ── FOOTER ── */
+footer{
+  padding:2.5rem 3rem;
+  background:rgba(0,0,0,0.45);
+  border-top:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.f-logo-name{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:7px;background:linear-gradient(135deg,#fff 30%,var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.f-logo-sub{font-size:8.5px;color:var(--dim);letter-spacing:4px;text-transform:uppercase;margin-top:1px}
+.f-wsp{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;font-weight:400;letter-spacing:.2px;
+  color:var(--accent);
+  background:rgba(255,122,26,0.08);
+  border:1px solid rgba(255,122,26,0.2);
+  padding:10px 22px;border-radius:100px;
+  text-decoration:none;
+  transition:all .25s;
+}
+.f-wsp:hover{background:rgba(255,122,26,0.16);border-color:rgba(255,122,26,0.4)}
+.f-copy{font-size:10.5px;color:var(--dim);letter-spacing:1px}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hero-eyebrow{animation:fadeUp .5s ease both}
+.hero-h1{animation:fadeUp .55s .08s ease both}
+.hero-desc{animation:fadeUp .55s .16s ease both}
+.hero-pills{animation:fadeUp .55s .24s ease both}
+.hero-ctas{animation:fadeUp .55s .32s ease both}
+.hero-widget{animation:fadeUp .55s .2s ease both}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+
+  /* NAV */
+  nav{padding:.9rem 1.2rem}
+  .logo-name{font-size:1.4rem;letter-spacing:5px}
+  .nav-btn{font-size:11px;padding:8px 16px}
+
+  /* HERO */
+  .hero{padding:2.5rem 1.2rem 0;min-height:auto}
+  .glow-blob{display:none}
+  .hero-body{grid-template-columns:1fr;gap:1.8rem}
+  .hero-eyebrow{font-size:9px;letter-spacing:2px;margin-bottom:1rem}
+  .hero-h1{font-size:clamp(3rem,13vw,4.5rem);margin-bottom:1.2rem}
+  .hero-desc{font-size:14.5px;max-width:100%;margin-bottom:1.5rem}
+  .hero-pills{gap:6px}
+  .hpill{font-size:11px;padding:4px 12px}
+  .hero-ctas{flex-direction:column;align-items:flex-start;gap:.8rem}
+  .cta-main{font-size:13px;padding:12px 24px;width:100%;justify-content:center}
+  .cta-ghost{font-size:12px}
+
+  /* LIVE WIDGET */
+  .hero-widget{border-radius:14px}
+  .hw-body{padding:1.2rem}
+  .hw-title{font-size:1.3rem}
+  .hw-sub{font-size:12px;margin-bottom:1.1rem}
+  .hws-icon{width:36px;height:36px;font-size:15px;border-radius:9px}
+  .hws-label{font-size:9px}
+
+  /* HERO FOOT */
+  .hero-foot{flex-direction:column;gap:1rem;align-items:flex-start;padding:1.2rem 0 1.8rem;margin-top:1.5rem}
+  .hf-stats{gap:1.5rem}
+  .hf-num{font-size:1.4rem}
+  .hf-label{font-size:8px}
+  .hf-tag{font-size:9px;letter-spacing:2px}
+
+  /* STATS BAR */
+  .statsbar{grid-template-columns:repeat(2,1fr)}
+  .sbar-item{padding:1.2rem .8rem}
+  .sbar-n{font-size:1.9rem}
+  .sbar-l{font-size:9.5px;letter-spacing:1.5px}
+
+  /* SECTIONS */
+  .sec{padding:3rem 1.2rem}
+  .sec-h{font-size:clamp(1.7rem,7vw,2.6rem);letter-spacing:2px}
+  .sec-sub{font-size:13.5px;margin-bottom:2.5rem}
+  .sec-label{font-size:9.5px;letter-spacing:3px}
+
+  /* CAROUSEL */
+  .carousel-outer::before,.carousel-outer::after{width:40px}
+  .cslide{width:240px;height:165px;border-radius:12px}
+
+  /* WEB DEL EVENTO */
+  .web-grid{grid-template-columns:1fr}
+  .wg-left{padding:2rem 1.4rem}
+  .wg-h{font-size:1.9rem}
+  .wg-p{font-size:13px}
+  .wg-right{padding:1.4rem}
+  .wg-step{padding:12px 14px;gap:10px}
+  .wg-num{font-size:1.2rem}
+  .wg-txt{font-size:12.5px}
+
+  /* BENEFIT CARDS */
+  .bene-grid{grid-template-columns:1fr;gap:14px}
+  .bcard{padding:1.5rem}
+  .bc-title{font-size:1.1rem}
+  .bc-text{font-size:12.5px}
+
+  /* GARANTÍA */
+  .garantia{
+    grid-template-columns:1fr;padding:2rem 1.4rem;
+    gap:1.5rem;text-align:center;
+  }
+  .g-icon{margin:0 auto;width:70px;height:70px;font-size:28px}
+  .g-title{font-size:1.6rem}
+  .g-text{font-size:13.5px}
+
+  /* PROCESO */
+  .proc-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .pcard{padding:1.4rem 1.1rem}
+  .pcard-n{font-size:2rem}
+  .pcard-icon{font-size:20px}
+  .pcard-title{font-size:1rem}
+  .pcard-text{font-size:11.5px}
+
+  /* EQUIPO */
+  .team-grid{grid-template-columns:1fr;gap:16px;max-width:100%}
+  .tcard-photo-wrap{height:160px}
+  .tph-initial{font-size:4rem}
+  .tcard-body{padding:1.2rem 1.4rem 1.5rem}
+  .tcard-name{font-size:1.7rem}
+  .tcard-bio{font-size:12.5px}
+  .tcard-tags{flex-direction:row;flex-wrap:wrap}
+  .ttag{font-size:10.5px;padding:4px 10px}
+
+  /* FORM */
+  .form-section{padding:3rem 1.2rem}
+  .form-shell{border-radius:16px}
+  .form-shell-head{padding:1.1rem 1.4rem;flex-direction:column;align-items:flex-start;gap:.4rem}
+  .fsh-title{font-size:.9rem;letter-spacing:3px}
+  .form-shell-body iframe{min-height:580px}
+
+  /* FOOTER */
+  footer{flex-direction:column;gap:1.2rem;text-align:center;padding:2rem 1.2rem}
+  .f-logo-name{font-size:1.4rem}
+  .f-wsp{font-size:12px;padding:10px 20px;width:100%;justify-content:center}
+  .f-copy{font-size:10px}
+}
+
+/* ── SMALL PHONES (≤390px) ── */
+@media(max-width:390px){
+  .hero-h1{font-size:2.8rem}
+  .statsbar{grid-template-columns:1fr 1fr}
+  .proc-grid{grid-template-columns:1fr}
+  .hw-steps{gap:1px}
+  .hws-icon{width:32px;height:32px;font-size:13px}
+  .hws-label{font-size:8.5px}
+}
+/* ── GHL OVERRIDE ── */
+div[class],div[id],section,main,header,footer,article{
+  background-color:transparent;
+}
+.zing-root{
+  background:#0c0820 !important;
+  min-height:100vh;
+  width:100%;
+  position:relative;
+  overflow:hidden;
+}
+</style>
+</head>
+<body><div class="zing-root">
+
+<nav>
+  <div class="logo">
+    <!-- LOGO IMG: reemplazá por <img src="URL_LOGO" alt="Zing" style="height:38px"> -->
+    <div class="logo-name">ZING</div>
+    <div class="logo-tagline">Producciones</div>
+  </div>
+  <a href="#formulario" class="nav-btn">Quiero mi presupuesto →</a>
+</nav>
+
+<section class="hero">
+  <canvas id="bg-canvas"></canvas>
+  <div class="glow-blob gb1"></div>
+  <div class="glow-blob gb2"></div>
+  <div class="glow-blob gb3"></div>
+
+  <div class="hero-body container">
+    <div>
+      <div class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="eyebrow-dot"></span>
+        +10 años cubriendo eventos
+        <span class="eyebrow-line r"></span>
+      </div>
+      <h1 class="hero-h1">
+        <span class="h1-plain">TU EVENTO,</span>
+        <span class="h1-gradient">EN VIVO</span>
+      </h1>
+      <p class="hero-desc">Fotografía y producción audiovisual para egresados, quinceañeras y casamientos. <em>0 minutos de espera</em> — tus fotos están listas mientras la fiesta sigue.</p>
+      <div class="hero-pills">
+        <span class="hpill">Egresados</span>
+        <span class="hpill">Quinceañeras</span>
+        <span class="hpill">Casamientos</span>
+        <span class="hpill">Córdoba · Todo el país</span>
+      </div>
+      <div class="hero-ctas">
+        <a href="#formulario" class="cta-main">Pedir presupuesto <span>↓</span></a>
+        <span class="cta-ghost">Sin compromiso</span>
+      </div>
+    </div>
+
+    <div class="hero-widget">
+      <div class="hw-top">
+        <div class="hw-live"><span class="hw-livedot"></span>En vivo</div>
+        <div class="hw-badge">Tech exclusiva</div>
+      </div>
+      <div class="hw-body">
+        <div class="hw-title">FOTOS AL INSTANTE</div>
+        <p class="hw-sub">Escaneás el QR en la fiesta y descargás tus fotos en segundos — sin apps, sin esperas.</p>
+        <div class="hw-steps">
+          <div class="hws"><div class="hws-icon">📸</div><div class="hws-label">Sacamos<br>la foto</div></div>
+          <div class="hws-arrow">›</div>
+          <div class="hws"><div class="hws-icon">⚡</div><div class="hws-label">Editamos<br>al toque</div></div>
+          <div class="hws-arrow">›</div>
+          <div class="hws"><div class="hws-icon">📱</div><div class="hws-label">Escaneás<br>el QR</div></div>
+          <div class="hws-arrow">›</div>
+          <div class="hws"><div class="hws-icon">🎉</div><div class="hws-label">Ya tenés<br>tus fotos</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-foot container">
+    <div class="hf-tag"><span class="hf-dot"></span>Tecnología aplicada al entretenimiento</div>
+    <div class="hf-stats">
+      <div class="hf-stat"><div class="hf-num">+500</div><div class="hf-label">Eventos</div></div>
+      <div class="hf-stat"><div class="hf-num">+10</div><div class="hf-label">Años</div></div>
+      <div class="hf-stat"><div class="hf-num">0'</div><div class="hf-label">Espera</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="statsbar">
+  <div class="sbar-item"><div class="sbar-n">+500</div><div class="sbar-l">Eventos cubiertos</div></div>
+  <div class="sbar-item"><div class="sbar-n">+10 años</div><div class="sbar-l">De experiencia</div></div>
+  <div class="sbar-item"><div class="sbar-n">0 min</div><div class="sbar-l">Espera para tus fotos</div></div>
+  <div class="sbar-item"><div class="sbar-n">100%</div><div class="sbar-l">Garantía de entrega</div></div>
+</div>
+
+<!-- CARRUSEL -->
+<section class="sec sec-alt" style="padding-bottom:0">
+  <div class="sec-label"><span class="sec-label-line"></span>Nuestro trabajo<span class="sec-label-line r"></span></div>
+  <h2 class="sec-h">MOMENTOS QUE <span>CAPTURAMOS</span></h2>
+  <p class="sec-sub" style="margin-bottom:2rem">Pausá pasando el cursor · Cada evento, una historia única</p>
+</section>
+<div class="sec-alt" style="padding-bottom:4rem">
+  <div class="carousel-outer">
+    <div class="carousel-track" id="carousel-track">
+      <!-- Slides cargados dinámicamente desde Supabase Storage (bucket: zing-fotos) -->
+    </div>
+  </div>
+</div>
+
+<div class="fade-div"></div>
+
+<!-- WEB DEL EVENTO -->
+<section class="sec sec-mid">
+  <div class="sec-label"><span class="sec-label-line"></span>Lo que ningún otro hace<span class="sec-label-line r"></span></div>
+  <h2 class="sec-h">TU EVENTO TIENE SU PROPIA <span>PÁGINA WEB</span></h2>
+  <p class="sec-sub" style="margin-bottom:2.5rem">Una experiencia digital personalizada, solo para tu noche</p>
+  <div class="web-grid container">
+    <div class="wg-left">
+      <div class="wg-eyebrow"><span style="width:5px;height:5px;border-radius:50%;background:var(--accent);display:inline-block;animation:pulse 2s infinite"></span>Exclusivo Zing</div>
+      <div class="wg-h">UNA WEB PARA<br><span>TU NOCHE</span></div>
+      <p class="wg-p">Armamos una página personalizada con el nombre de tu evento. Los invitados escanean el QR, entran a la web y descargan las fotos al instante — o suben las suyas. Al cerrar la noche, todo queda en una sola carpeta.</p>
+    </div>
+    <div class="wg-right">
+      <div class="wg-step"><div class="wg-num">01</div><div class="wg-txt"><strong>Página propia</strong> con el nombre de tu evento, tu fecha y tu estética.</div></div>
+      <div class="wg-step"><div class="wg-num">02</div><div class="wg-txt">Los invitados escanean el QR y <strong>descargan sus fotos en el momento</strong>, sin apps ni registros.</div></div>
+      <div class="wg-step"><div class="wg-num">03</div><div class="wg-txt">También pueden <strong>subir sus propias fotos</strong> para el recuerdo compartido.</div></div>
+      <div class="wg-step"><div class="wg-num">04</div><div class="wg-txt">Al cerrar, te entregamos <strong>una carpeta única</strong> con todo junto.</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="fade-div"></div>
+
+<!-- BENEFICIOS -->
+<section class="sec sec-alt">
+  <div class="sec-label"><span class="sec-label-line"></span>Todo lo que incluye<span class="sec-label-line r"></span></div>
+  <h2 class="sec-h">POR QUÉ ELIGEN <span>ZING</span></h2>
+  <p class="sec-sub">Cada detalle pensado para que vos no te preocupes por nada</p>
+  <div class="bene-grid container">
+    <div class="bcard featured"><span class="bc-tag tag-o">Diferencial clave</span><span class="bc-icon">⚡</span><div class="bc-title">0 minutos de espera</div><p class="bc-text">Las fotos están listas mientras la música sigue. <strong>Entrega en vivo, durante tu fiesta.</strong></p></div>
+    <div class="bcard featured"><span class="bc-tag tag-o">Exclusivo</span><span class="bc-icon">🌐</span><div class="bc-title">Página web de tu evento</div><p class="bc-text">Una web personalizada solo para tu noche. <strong>QR para descargar y subir fotos.</strong> Todo en una carpeta al final.</p></div>
+    <div class="bcard"><span class="bc-tag tag-m">Incluido</span><span class="bc-icon">🎬</span><div class="bc-title">Video resumen de la noche</div><p class="bc-text">Un video editado con los <strong>momentos más importantes</strong> de tu evento.</p></div>
+    <div class="bcard"><span class="bc-tag tag-p">Proceso</span><span class="bc-icon">🗓️</span><div class="bc-title">Reunión previa de relevamiento</div><p class="bc-text">Antes del evento nos reunimos para entender cada detalle. <strong>Nada queda librado al azar.</strong></p></div>
+    <div class="bcard"><span class="bc-tag tag-p">Tecnología</span><span class="bc-icon">📡</span><div class="bc-title">Handys y edición en vivo</div><p class="bc-text"><strong>Comunicación interna</strong> y estación de edición en tiempo real toda la noche.</p></div>
+    <div class="bcard"><span class="bc-tag tag-o">Beneficio</span><span class="bc-icon">🎁</span><div class="bc-title">Descuentos exclusivos</div><p class="bc-text">Alianzas con maquillaje, ropa de egresados y banderas con <strong>envío a todo el país.</strong></p></div>
+  </div>
+</section>
+
+<!-- GARANTÍA -->
+<section class="sec sec-dark" style="background:var(--ink)">
+  <div class="sec-label"><span class="sec-label-line"></span>Nuestra promesa<span class="sec-label-line r"></span></div>
+  <h2 class="sec-h">GARANTÍA <span>EXCLUSIVA</span></h2>
+  <p class="sec-sub" style="margin-bottom:2.5rem">Trabajamos con la misma exigencia que le ponés vos a tu evento</p>
+  <div class="garantia-wrap">
+    <div class="garantia">
+      <div class="g-icon">✅</div>
+      <div>
+        <div class="g-label">Garantía de servicio profesional</div>
+        <div class="g-title">SI NO CUMPLIMOS,<br>TE DEVOLVEMOS TODO</div>
+        <p class="g-text">Si no te entregamos las fotos y el video <strong>antes de que termine la noche</strong>, te devolvemos el dinero. Sin letra chica. Sin excusas. Está escrito en el contrato.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="fade-div"></div>
+
+<!-- PROCESO -->
+<section class="sec sec-mid">
+  <div class="sec-label"><span class="sec-label-line"></span>Cómo trabajamos<span class="sec-label-line r"></span></div>
+  <h2 class="sec-h">NUESTRO EQUIPO <span>EN ACCIÓN</span></h2>
+  <p class="sec-sub">Cada integrante tiene un rol. Nada se improvisa.</p>
+  <div class="proc-grid container">
+    <div class="pcard"><div class="pcard-n">01</div><span class="pcard-icon">🗣️</span><div class="pcard-title">Reunión previa</div><p class="pcard-text">Relevamos cada detalle antes del evento: momentos clave, personas VIP, timing de la noche.</p></div>
+    <div class="pcard"><div class="pcard-n">02</div><span class="pcard-icon">📡</span><div class="pcard-title">Handys internos</div><p class="pcard-text">Todo el equipo coordinado en tiempo real. Capturamos cada momento sin perdernos nada.</p></div>
+    <div class="pcard"><div class="pcard-n">03</div><span class="pcard-icon">💻</span><div class="pcard-title">Edición en vivo</div><p class="pcard-text">Estación de edición en el evento. Las fotos se procesan y suben a la web al instante.</p></div>
+    <div class="pcard"><div class="pcard-n">04</div><span class="pcard-icon">📦</span><div class="pcard-title">Entrega antes del cierre</div><p class="pcard-text">Fotos, video y carpeta completa entregados antes de que termine la noche.</p></div>
+  </div>
+</section>
+
+<div class="fade-div"></div>
+
+<!-- EQUIPO -->
+<section class="sec sec-mid" id="equipo">
+  <div class="sec-label"><span class="sec-label-line"></span>Las personas detrás de la magia<span class="sec-label-line r"></span></div>
+  <h2 class="sec-h">EL EQUIPO QUE HACE <span>LA EXPERIENCIA</span></h2>
+  <p class="sec-sub">Cada evento lo vivimos nosotros también. Por eso nos importa tanto.</p>
+
+  <div class="team-grid container">
+
+    <div class="tcard">
+      <div class="tcard-photo-wrap">
+        <div class="tcard-photo tcard-ph">
+          <span class="tph-initial">L</span>
+        </div>
+        <div class="tcard-glow tglow-o"></div>
+      </div>
+      <div class="tcard-body">
+        <div class="tcard-role">Filmmaker · Video</div>
+        <div class="tcard-name">LUCAS</div>
+        <p class="tcard-bio">El cerebro detrás del video. Se encarga de que cada toma, cada corte y cada segundo del resumen de tu noche quede impecable. Si lo filmó Lucas, va a quedar 10 puntos.</p>
+        <div class="tcard-tags">
+          <span class="ttag">🎬 Filmmaker profesional</span>
+          <span class="ttag">🎞️ Video resumen de la noche</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tcard tcard-center">
+      <div class="tcard-photo-wrap">
+        <div class="tcard-photo tcard-ph">
+          <span class="tph-initial">V</span>
+        </div>
+        <div class="tcard-glow tglow-p"></div>
+      </div>
+      <div class="tcard-body">
+        <div class="tcard-role">Editora en vivo</div>
+        <div class="tcard-name">VALENTINA</div>
+        <p class="tcard-bio">Opera la estación de edición durante el evento. Procesa cada foto al instante para que tus invitados las descarguen en segundos — mientras la fiesta sigue.</p>
+        <div class="tcard-tags">
+          <span class="ttag">⚡ Edición al instante</span>
+          <span class="ttag">🌐 Entrega en vivo por QR</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-photo-wrap">
+        <div class="tcard-photo tcard-ph">
+          <span class="tph-initial">E</span>
+        </div>
+        <div class="tcard-glow tglow-m"></div>
+      </div>
+      <div class="tcard-body">
+        <div class="tcard-role">Fotógrafo · Coordinador general</div>
+        <div class="tcard-name">ENZO</div>
+        <p class="tcard-bio">El fotógrafo y el que mueve todos los hilos. Desde la reunión previa hasta el cierre de la noche, coordina cada detalle para que nada quede librado al azar.</p>
+        <div class="tcard-tags">
+          <span class="ttag">📸 Fotografía del evento</span>
+          <span class="ttag">🎯 Coordinación integral</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="fade-div"></div>
+
+<!-- FORMULARIO -->
+<section class="form-section" id="formulario">
+  <div class="form-wrap">
+    <div style="text-align:center;margin-bottom:3rem">
+      <div class="sec-label"><span class="sec-label-line"></span>Sin compromiso · Respuesta en menos de 24 hs<span class="sec-label-line r"></span></div>
+      <h2 class="sec-h">PEDÍ TU <span>PRESUPUESTO</span></h2>
+      <p class="sec-sub" style="margin-bottom:0">Completá el formulario y te contactamos a la brevedad</p>
+    </div>
+    <div class="form-shell">
+      <div class="form-shell-head">
+        <span class="fsh-title">FORMULARIO DE CONSULTA</span>
+        <div class="fsh-live"><span class="fsh-dot"></span>Recibimos tu consulta al instante</div>
+      </div>
+      <div class="form-shell-body">
+        <iframe src="https://web.zingproducciones.com/widget/survey/ha4c5jwbdxQfWakUnCc1" style="border:none;width:100%;" scrolling="no" id="ha4c5jwbdxQfWakUnCc1" title="survey"></iframe>
+        <script src="https://web.zingproducciones.com/js/form_embed.js"></script>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="f-logo-name">ZING</div>
+    <div class="f-logo-sub">Producciones</div>
+  </div>
+  <a href="https://wa.me/5493513187351" class="f-wsp">💬 Escribinos por WhatsApp</a>
+  <div class="f-copy">© 2026 Zing Producciones · Córdoba, Argentina</div>
+</footer>
+
+<script>
+/* CANVAS BACKGROUND */
+const cv=document.getElementById('bg-canvas');
+const cx=cv.getContext('2d');
+function rs(){cv.width=cv.offsetWidth;cv.height=cv.offsetHeight}
+rs();window.addEventListener('resize',rs);
+
+class Node{
+  constructor(){this.reset()}
+  reset(){
+    this.x=Math.random()*cv.width; this.y=Math.random()*cv.height;
+    this.vx=(Math.random()-.5)*.2; this.vy=(Math.random()-.5)*.2;
+    this.r=Math.random()*1.8+.5;
+    this.hue=Math.random()>.55?28:270;
+  }
+  update(){
+    this.x+=this.vx;this.y+=this.vy;
+    if(this.x<0||this.x>cv.width)this.vx*=-1;
+    if(this.y<0||this.y>cv.height)this.vy*=-1;
+  }
+  draw(){
+    cx.beginPath();cx.arc(this.x,this.y,this.r,0,Math.PI*2);
+    cx.fillStyle=`hsla(${this.hue},90%,65%,.22)`;cx.fill();
+  }
+}
+class Particle{
+  constructor(){this.reset(true)}
+  reset(i){
+    this.x=Math.random()*cv.width;
+    this.y=i?Math.random()*cv.height:cv.height+8;
+    this.r=Math.random()*1.2+.3;
+    this.vx=(Math.random()-.5)*.15;
+    this.vy=-(Math.random()*.45+.12);
+    this.a=Math.random()*.15+.04;
+    this.hue=Math.random()>.6?28:270;
+  }
+  update(){this.x+=this.vx;this.y+=this.vy;if(this.y<-8)this.reset()}
+  draw(){cx.beginPath();cx.arc(this.x,this.y,this.r,0,Math.PI*2);cx.fillStyle=`hsla(${this.hue},90%,65%,${this.a})`;cx.fill()}
+}
+class ScanLine{
+  constructor(){this.y=Math.random()*500;this.s=Math.random()*.25+.1;this.a=Math.random()*.035+.01}
+  update(){this.y-=this.s;if(this.y<0)this.y=cv.height}
+  draw(){
+    const g=cx.createLinearGradient(0,0,cv.width,0);
+    g.addColorStop(0,'transparent');
+    g.addColorStop(.35,`hsla(28,90%,55%,${this.a})`);
+    g.addColorStop(.65,`hsla(270,80%,65%,${this.a})`);
+    g.addColorStop(1,'transparent');
+    cx.beginPath();cx.moveTo(0,this.y);cx.lineTo(cv.width,this.y);
+    cx.strokeStyle=g;cx.lineWidth=1;cx.stroke();
+  }
+}
+const mob=window.innerWidth<768;
+const D=mob?75:105;
+const nodes=Array.from({length:mob?16:38},()=>new Node());
+const parts=Array.from({length:mob?20:55},()=>new Particle());
+const scans=Array.from({length:mob?2:5},()=>new ScanLine());
+let frame=0;
+function loop(){
+  frame++;
+  cx.clearRect(0,0,cv.width,cv.height);
+  scans.forEach(s=>{s.update();s.draw()});
+  // skip connection calc every other frame on mobile for perf
+  if(!mob||frame%2===0){
+    for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++){
+      const dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.hypot(dx,dy);
+      if(d<D){
+        const a=.07*(1-d/D);
+        cx.beginPath();cx.moveTo(nodes[i].x,nodes[i].y);cx.lineTo(nodes[j].x,nodes[j].y);
+        cx.strokeStyle=`hsla(28,90%,55%,${a})`;cx.lineWidth=.5;cx.stroke();
+      }
+    }
+  }
+  nodes.forEach(n=>{n.update();n.draw()});
+  parts.forEach(p=>{p.update();p.draw()});
+  requestAnimationFrame(loop);
+}
+loop();
+</script>
+
+<script>
+/* ─── CARRUSEL DINÁMICO · SUPABASE STORAGE ─────────────────────────────────
+   Para agregar fotos: subí cualquier imagen al bucket "zing-fotos" en
+   https://supabase.com → Storage. El carrusel se actualiza automáticamente.
+   ────────────────────────────────────────────────────────────────────────── */
+const SUPABASE_URL      = 'https://ndjebnucnuxmyioclxez.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5kamVibnVjbnV4bXlpb2NseGV6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4ODg0MTYsImV4cCI6MjA5MjQ2NDQxNn0.8o0QiLP6XwO4ftzjnNYQpTUN48h92DTUC5Qx9auJ63c';
+const BUCKET            = 'zing-fotos';
+
+(async function cargarCarrusel() {
+  const track = document.getElementById('carousel-track');
+  if (!track) return;
+
+  try {
+    const res = await fetch(`${SUPABASE_URL}/storage/v1/object/list/${BUCKET}`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+        'apikey': SUPABASE_ANON_KEY,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ prefix: '', limit: 100, offset: 0, sortBy: { column: 'name', order: 'asc' } })
+    });
+
+    const files = await res.json();
+    const images = Array.isArray(files)
+      ? files.filter(f => f.name && /\.(jpe?g|png|webp|gif|avif)$/i.test(f.name))
+      : [];
+
+    if (images.length === 0) {
+      /* Sin fotos en el bucket: mostrar placeholder genérico */
+      track.innerHTML = `
+        <div class="cslide"><div class="cslide-ph"><div class="cslide-ph-icon">📸</div><div class="cslide-ph-n">Próximamente</div></div></div>
+        <div class="cslide"><div class="cslide-ph"><div class="cslide-ph-icon">🎉</div><div class="cslide-ph-n">Próximamente</div></div></div>
+        <div class="cslide"><div class="cslide-ph"><div class="cslide-ph-icon">🎊</div><div class="cslide-ph-n">Próximamente</div></div></div>
+      `.repeat(2);
+      return;
+    }
+
+    const slideHTML = images
+      .map(f => {
+        const url = `${SUPABASE_URL}/storage/v1/object/public/${BUCKET}/${encodeURIComponent(f.name)}`;
+        return `<div class="cslide"><img src="${url}" alt="Evento Zing" loading="lazy"></div>`;
+      })
+      .join('');
+
+    /* Duplicar para el loop infinito CSS */
+    track.innerHTML = slideHTML + slideHTML;
+
+    /* Ajustar velocidad según cantidad de fotos (3.5 s por slide) */
+    const duration = Math.max(20, images.length * 3.5);
+    track.style.animationDuration = `${duration}s`;
+
+  } catch (err) {
+    console.warn('[Zing carrusel] Error cargando fotos:', err);
+  }
+})();
+</script>
+</div></body>
+</html>
